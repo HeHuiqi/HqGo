@@ -1,0 +1,38 @@
+
+<!--
+这里用 define 来定义模版的名字
+-->
+{{ define "layout" }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoTemplate使用</title>
+</head>
+<body style="text-align:left">
+<h3>用户信息</h3>
+<hr>
+<ul>
+    <li>姓名: {{.Name}}:<p>
+    <li>证件号: {{.Id}} <p>
+    <li>国家：{{.Country}}</li>
+
+{{if .Age}}
+    <li>年龄：{{.Age}}</li>
+{{end}}
+
+</ul>
+<hr>
+<!--
+template 来插入其他的模版
+-->
+{{template "index"}}
+</body>
+</html>
+
+
+<!--
+结束模版定义
+-->
+{{ end }}
