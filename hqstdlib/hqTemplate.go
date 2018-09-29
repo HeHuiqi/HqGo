@@ -92,7 +92,7 @@ func HqServerParseTPL()  {
 
 func home(w http.ResponseWriter,r *http.Request)  {
 
-	//加载模版文件,加载多个模版文件，模版的名字位第一个模版的名字
+	//加载模版文件,加载多个模版文件
 	tpl,err := template.ParseFiles("./static/templates/layout.html","static/templates/index.html")
 	fmt.Println("HQ:模版名称：",tpl.Name())
 

@@ -1,10 +1,5 @@
 package main
 
-import (
-
-	"./hqstdlib"
-)
-
 func main() {
 
 	//hqbase.HqArrayUse()
@@ -38,7 +33,34 @@ func main() {
 
 	//hqstdlib.HqTimerUser()
 
-	hqstdlib.HqParseFile("app.config")
+	//hqstdlib.HqParseFile("app.config")
+
+
+	/*
+	c := hqstdlib.HqCount(10)
+	//值传递不会改变原有值
+	c.HqValuePassAdd(2)
+	fmt.Printf("c==:%d\n",c)
+
+	//指针传递才会改变原有值
+	c.HqPointerPassAdd(3)
+	fmt.Printf("c==:%d\n",c)
+
+	*/
+
+
+
+	/*
+	var messages chan string = make(chan string)
+	go func(message string) {
+		messages <- message // 存消息
+	}("Ping!")
+
+	fmt.Println(<-messages) // 取消息
+	*/
+
+
+
 
 }
 

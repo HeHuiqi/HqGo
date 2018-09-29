@@ -29,8 +29,8 @@ func HqUnBufferChanel()  {
 	 hqChanWg.Add(2)
 
 	 //启动两个选手
-	 go player("哈哈哈",courtChan)
-	 go player("呵呵呵",courtChan)
+	 go player("AAA",courtChan)
+	 go player("BBB",courtChan)
 
 	 //发球
 	 courtChan <- 1
@@ -43,7 +43,7 @@ func player(name string,counter chan  int)  {
 	defer hqChanWg.Done()
 	for{
 		//等待通道被关闭，我们就赢了
-		ball,ok := <-counter;
+		ball,ok := <-counter
 		if !ok {
 			fmt.Printf("Player %s Won\n",name)
 			return
@@ -144,3 +144,7 @@ func hqPrintf(ch chan  int,index int)  {
 func hqPrint(index int)  {
 	fmt.Println(index,"Hello World!")
 }
+
+/*
+使用channel共享数据
+*/
