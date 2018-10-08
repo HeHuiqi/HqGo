@@ -1,5 +1,7 @@
 package main
 
+import "./hqweb"
+
 func main() {
 
 	//hqbase.HqArrayUse()
@@ -59,6 +61,7 @@ func main() {
 	fmt.Println(<-messages) // 取消息
 	*/
 
+	hqweb.HqNewWebServer()
 
 
 
