@@ -15,6 +15,8 @@ func HqArrayUse()  {
 	fmt.Println("hello")
 	//创建并初始化一个数组
 	a := []int{1, 2, 3, 4, 5, 6}
+	b := [...]int{4,5,6,7}
+	fmt.Println(b)
 
 	//创建一个无缓冲的通道
 	c := make(chan int)

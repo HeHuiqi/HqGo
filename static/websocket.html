@@ -1,0 +1,109 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WebSocket demo</title>
+    <script src="./static/libs/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+
+<div>
+    <button id="jiadian">连接Socket</button>
+    <form>
+        <label for="numberfield">Number</label>
+        <input type="text" id="numberfield" placeholder="input"/><br />
+        <button type="button" id="sendBtn" onclick="HqSend()">Send</button>
+    </form>
+
+
+</div>
+<div id="container"></div>
+
+<script type="text/javascript">
+
+
+    /*
+
+    var content = document.getElementById("container");
+    var ws;
+    if (window.WebSocket === undefined) {
+        content.append("Your browser does not support WebSockets");
+    } else {
+        ws = initWS();
+    }
+
+    function initWS() {
+        var socket = new WebSocket("ws://127.0.0.01:8080/ws");
+        socket.onopen = function() {
+
+            // var para=document.createElement("h1");
+            // var node=document.createTextNode("Socket is open");
+            // content.appendChild(node);
+
+            content.innerHTML = content.innerHTML + "<h1>Socket is open</h1>"
+        };
+        socket.onmessage = function (e) {
+            // var para=document.createElement("h1");
+            // var node=document.createTextNode("Got some shit:" + e.data);
+            // content.appendChild(node);
+            content.innerHTML = content.innerHTML + "<h1>"+e.data+"</h1>"
+
+        }
+        socket.onclose = function () {
+            // var para=document.createElement("h1");
+            // var node=document.createTextNode("Socket closed");
+            // content.appendChild(node);
+            content.innerHTML = content.innerHTML + "<h1>Socket is closed</h1>"
+        }
+
+        return socket;
+    }
+
+    function HqSend() {
+        var input = document.getElementById("numberfield");
+        var num = parseInt(input.value)
+        ws.send(JSON.stringify({ Num: num}));
+    }
+    */
+    var ws;
+    $(function () {
+        $("#jiadian").click(function () {
+            // alert("恭喜您获得了一台洗衣机");
+            createWebSocket()
+        });
+
+        $("#sendBtn").click(function (e) {
+            e.preventDefault();
+            ws.send(JSON.stringify({ Num: parseInt($("#numberfield").val()) }));
+        });
+    });
+    
+    function createWebSocket() {
+
+
+        if (window.WebSocket === undefined) {
+            $("#container").append("Your browser does not support WebSockets");
+            return;
+        } else {
+            ws = initWS();
+            console.log("支持websocket");
+        }
+
+        function initWS() {
+            var socket = new WebSocket("ws://127.0.0.1:8080/ws"),
+                    container = $("#container")
+            socket.onopen = function() {
+                container.append("<h1>Socket is open</h1>");
+            };
+            socket.onmessage = function (e) {
+                container.append("<h1> Get some message:" + e.data + "</h1>");
+            }
+            socket.onclose = function () {
+                container.append("<h1>Socket closed</h1>");
+            }
+
+            return socket;
+        }
+    }
+</script>
+</body>
+</html>

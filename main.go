@@ -1,6 +1,6 @@
 package main
 
-import "./hqweb"
+import "./hqhash"
 
 func main() {
 
@@ -61,7 +61,9 @@ func main() {
 	fmt.Println(<-messages) // 取消息
 	*/
 
-	hqweb.HqNewWebServer()
+	//hqweb.HqNewWebServer()
+	//hqweb.HqWebSocket()
+	hqhash.HqHash()
 
 
 
